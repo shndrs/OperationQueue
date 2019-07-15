@@ -19,23 +19,12 @@ final class ListViewController: UIViewController {
                                forCellReuseIdentifier: Strings.cellId.rawValue)
             tableView.delegate = self
             tableView.dataSource = self
+            tableView.rowHeight = 80
             
         }
     }
     
-    private func applySepiaFilter(_ image:UIImage) -> UIImage? {
-        let inputImage = CIImage(data:image.pngData()!)
-        let context = CIContext(options:nil)
-        let filter = CIFilter(name:Strings.sepiaTone.rawValue)
-        filter?.setValue(inputImage, forKey: kCIInputImageKey)
-        filter!.setValue(0.8, forKey: Strings.inputIntensity.rawValue)
-        
-        guard let outputImage = filter!.outputImage,
-            let outImage = context.createCGImage(outputImage, from: outputImage.extent) else {
-                return nil
-        }
-        return UIImage(cgImage: outImage)
-    }
+
     
 }
 
@@ -58,6 +47,9 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Strings.cellId.rawValue) as! TableViewCell
         
-        return UITableViewCell()
+        let rowKey = photos.allKeys[indexPath.row] as! String
+        guard let imageURL = URL(string:photos[rowKey] as! String) else { return cell }
+        cell.fillCellBy(title: rowKey, imageURL: imageURL)
+        return cell
     }
 }

@@ -10,10 +10,14 @@ import UIKit
 
 final class TableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var bannerImage: UIImageView!
+    @IBOutlet private weak var bannerImage: UIImageView! {
+        didSet {
+            let cr = bannerImage.bounds.width/2
+            bannerImage.layer.cornerRadius = cr
+        }
+    }
     @IBOutlet private weak var titleLabel: UILabel!
     
-
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -22,9 +26,13 @@ final class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func fill(cell by:Model) {
-        bannerImage.image = by.image
-        titleLabel.text = by.title
+    public func fillCellBy(title:String?, imageURL:URL) {
+        
+        guard let imageData = try? Data(contentsOf: imageURL) else { return }
+        guard let unfilteredImage = UIImage(data: imageData) else { return }
+        let filterdImage = FilterImage.applySepiaFilter(unfilteredImage)
+        
+        titleLabel.text = title
+        bannerImage.image = filterdImage
     }
-    
 }
