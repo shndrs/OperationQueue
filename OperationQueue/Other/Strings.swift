@@ -13,6 +13,9 @@ public enum Strings: String {
     case operationQueueEx = "Operation Queue Ex"
     case cellId = "TableViewCell"
     case sepiaTone = "CISepiaTone"
+    case oops = "Oops!"
+    case fetchError = "There was an error fetching photo details."
+    case ok = "OK"
     case inputIntensity
     
     
