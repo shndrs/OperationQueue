@@ -11,7 +11,7 @@ import CoreImage
 
 final class ListViewController: UIViewController {
     
-    lazy var photos = NSDictionary(contentsOf:DataSource.url)!
+    private lazy var photos = NSDictionary(contentsOf:DataSource.url)!
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -23,9 +23,6 @@ final class ListViewController: UIViewController {
             
         }
     }
-    
-
-    
 }
 
 // MARK: - Life Cycle
@@ -33,6 +30,8 @@ final class ListViewController: UIViewController {
 extension ListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = Strings.operationQueueEx.rawValue
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
 
