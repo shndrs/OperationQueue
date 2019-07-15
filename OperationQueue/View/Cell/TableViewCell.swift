@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol ReloadTableDelegate: AnyObject {
+    func reloadTable(at indexPath:IndexPath)
+}
+
 final class TableViewCell: UITableViewCell {
+    
+    private let pendingOperations = PendingOperations()
+    
+    public weak var reloadDelegate: ReloadTableDelegate?
     
     @IBOutlet private weak var bannerImage: UIImageView! {
         didSet {
@@ -37,7 +45,52 @@ final class TableViewCell: UITableViewCell {
         }
     }
     
-    public func fillCellBy(photoRecord: PhotoRecord) {
+    private func startDownload(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+        
+        guard pendingOperations.downloadsInProgress[indexPath] == nil else {
+            return
+        }
+        
+        let downloader = ImageDownloader(photoRecord)
+        
+        downloader.completionBlock = {
+            if downloader.isCancelled {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.pendingOperations.downloadsInProgress.removeValue(forKey: indexPath)
+                self.reloadDelegate?.reloadTable(at: indexPath)
+            }
+        }
+        
+        pendingOperations.downloadsInProgress[indexPath] = downloader
+        pendingOperations.downloadQueue.addOperation(downloader)
+    }
+    
+    func startFiltration(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+        guard pendingOperations.filtrationsInProgress[indexPath] == nil else {
+            return
+        }
+        
+        let filterer = ImageFilteration(photoRecord)
+        filterer.completionBlock = {
+            if filterer.isCancelled {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                self.pendingOperations.filtrationsInProgress.removeValue(forKey: indexPath)
+                self.reloadDelegate?.reloadTable(at: indexPath)
+            }
+        }
+        
+        pendingOperations.filtrationsInProgress[indexPath] = filterer
+        pendingOperations.filtrationQueue.addOperation(filterer)
+    }
+
+    
+    public func fillCellBy(photoRecord: PhotoRecord, indexPath: IndexPath) {
 
         if self.accessoryView == nil {
             let indicator = UIActivityIndicatorView(style: .gray)
@@ -56,7 +109,7 @@ final class TableViewCell: UITableViewCell {
             self.titleLabel?.text = Strings.failedToLoad.rawValue
         case .new, .downloaded:
             indicator.startAnimating()
-            startOperations(for: photoDetails, at: indexPath)
+            startOperations(for: photoRecord, at: indexPath)
         }
     }
 }

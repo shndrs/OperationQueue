@@ -101,10 +101,16 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: Strings.cellId.rawValue) as! TableViewCell
-        
-        let rowKey = photos.allKeys[indexPath.row] as! String
-        guard let imageURL = URL(string:photos[rowKey] as! String) else { return cell }
-        cell.fillCellBy(title: rowKey, imageURL: imageURL)
+        cell.fillCellBy(photoRecord: photos[indexPath.row], indexPath: indexPath)
+        cell.reloadDelegate = self
         return cell
+    }
+}
+
+// MARK: Reload tableView Delegate
+
+extension ListViewController: ReloadTableDelegate {
+    func reloadTable(at indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
 }
