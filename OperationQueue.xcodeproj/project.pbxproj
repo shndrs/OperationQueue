@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4266E4322DC690500FA8F2C /* PhotoRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4266E4222DC690500FA8F2C /* PhotoRecord.swift */; };
+		F4266E4522DC69D500FA8F2C /* PhotoOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4266E4422DC69D500FA8F2C /* PhotoOperations.swift */; };
 		F46EF5FC22DC467800E30C84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF5FB22DC467800E30C84 /* AppDelegate.swift */; };
 		F46EF60122DC467800E30C84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46EF5FF22DC467800E30C84 /* Main.storyboard */; };
 		F46EF60322DC467900E30C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46EF60222DC467900E30C84 /* Assets.xcassets */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4266E4222DC690500FA8F2C /* PhotoRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoRecord.swift; sourceTree = "<group>"; };
+		F4266E4422DC69D500FA8F2C /* PhotoOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoOperations.swift; sourceTree = "<group>"; };
 		F46EF5F822DC467800E30C84 /* OperationQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OperationQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F46EF5FB22DC467800E30C84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F46EF60022DC467800E30C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				F46EF61022DC4C5D00E30C84 /* Model.swift */,
+				F4266E4222DC690500FA8F2C /* PhotoRecord.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 				F46EF61922DC4E4000E30C84 /* Strings.swift */,
 				F46EF61B22DC503B00E30C84 /* DataSource.swift */,
 				F46EF61D22DC560000E30C84 /* FilterImage.swift */,
+				F4266E4422DC69D500FA8F2C /* PhotoOperations.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -188,9 +194,11 @@
 			files = (
 				F46EF61C22DC503B00E30C84 /* DataSource.swift in Sources */,
 				F46EF5FC22DC467800E30C84 /* AppDelegate.swift in Sources */,
+				F4266E4522DC69D500FA8F2C /* PhotoOperations.swift in Sources */,
 				F46EF61722DC4DDB00E30C84 /* TableViewCell.swift in Sources */,
 				F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */,
 				F46EF61E22DC560000E30C84 /* FilterImage.swift in Sources */,
+				F4266E4322DC690500FA8F2C /* PhotoRecord.swift in Sources */,
 				F46EF60E22DC47CA00E30C84 /* ListViewController.swift in Sources */,
 				F46EF61122DC4C5D00E30C84 /* Model.swift in Sources */,
 			);

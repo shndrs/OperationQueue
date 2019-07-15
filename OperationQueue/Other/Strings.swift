@@ -10,7 +10,7 @@ import Foundation
 
 public enum Strings: String {
     
-    case operationQueueEx = "Operation Queue Example"
+    case operationQueueEx = "Operation Queue Ex"
     case cellId = "TableViewCell"
     case sepiaTone = "CISepiaTone"
     case inputIntensity

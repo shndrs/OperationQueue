@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreImage
 
 final class ListViewController: UIViewController {
     
