@@ -13,16 +13,18 @@ final class ListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
+            tableView.register(UINib(nibName: Strings.cellId.rawValue, bundle: nil),
+                               forCellReuseIdentifier: Strings.cellId.rawValue)
             
         }
     }
     
-    func applySepiaFilter(_ image:UIImage) -> UIImage? {
+    private func applySepiaFilter(_ image:UIImage) -> UIImage? {
         let inputImage = CIImage(data:image.pngData()!)
         let context = CIContext(options:nil)
-        let filter = CIFilter(name:"CISepiaTone")
+        let filter = CIFilter(name:Strings.sepiaTone.rawValue)
         filter?.setValue(inputImage, forKey: kCIInputImageKey)
-        filter!.setValue(0.8, forKey: "inputIntensity")
+        filter!.setValue(0.8, forKey: Strings.inputIntensity.rawValue)
         
         guard let outputImage = filter!.outputImage,
             let outImage = context.createCGImage(outputImage, from: outputImage.extent) else {
