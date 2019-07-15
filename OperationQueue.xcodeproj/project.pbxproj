@@ -16,6 +16,7 @@
 		F46EF61722DC4DDB00E30C84 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61522DC4DDB00E30C84 /* TableViewCell.swift */; };
 		F46EF61822DC4DDB00E30C84 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */; };
 		F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61922DC4E4000E30C84 /* Strings.swift */; };
+		F46EF61C22DC503B00E30C84 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61B22DC503B00E30C84 /* DataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F46EF61522DC4DDB00E30C84 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F46EF61922DC4E4000E30C84 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		F46EF61B22DC503B00E30C84 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				F46EF5FB22DC467800E30C84 /* AppDelegate.swift */,
 				F46EF60222DC467900E30C84 /* Assets.xcassets */,
 				F46EF61922DC4E4000E30C84 /* Strings.swift */,
+				F46EF61B22DC503B00E30C84 /* DataSource.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46EF61C22DC503B00E30C84 /* DataSource.swift in Sources */,
 				F46EF5FC22DC467800E30C84 /* AppDelegate.swift in Sources */,
 				F46EF61722DC4DDB00E30C84 /* TableViewCell.swift in Sources */,
 				F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */,

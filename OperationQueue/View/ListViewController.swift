@@ -11,10 +11,14 @@ import CoreImage
 
 final class ListViewController: UIViewController {
     
+    lazy var photos = NSDictionary(contentsOf:DataSource.url)!
+    
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: Strings.cellId.rawValue, bundle: nil),
                                forCellReuseIdentifier: Strings.cellId.rawValue)
+            tableView.delegate = self
+            tableView.dataSource = self
             
         }
     }
@@ -44,3 +48,16 @@ extension ListViewController {
 }
 
 // MARK: TableView DataSource Delegate
+
+extension ListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: Strings.cellId.rawValue) as! TableViewCell
+        
+        return UITableViewCell()
+    }
+}

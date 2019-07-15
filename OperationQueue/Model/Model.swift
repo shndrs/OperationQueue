@@ -6,4 +6,16 @@
 //  Copyright © 2019 shndrs. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+public struct Model {
+    
+    public private(set) var image: UIImage?
+    public private(set) var title: String?
+    
+    public init(image: UIImage, title: String) {
+        self.image = image
+        self.title = title
+    }
+    
+}
