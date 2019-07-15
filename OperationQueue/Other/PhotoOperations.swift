@@ -24,8 +24,9 @@ public final class PhotoRecord {
     }
 }
 
-class PendingOperations {
-    lazy var downloadsInProgress: [IndexPath: Operation] = [:]
+public class PendingOperations {
+    
+    lazy var downloadsInProgress: [IndexPath:  Operation] = [:]
     lazy var downloadQueue: OperationQueue = {
         var queue = OperationQueue()
         queue.name = "Download queue"
@@ -40,4 +41,34 @@ class PendingOperations {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
+}
+
+public class ImageDownloader: Operation {
+    
+    private let photoRecord: PhotoRecord
+    
+    init(_ photoRecord: PhotoRecord) {
+        self.photoRecord = photoRecord
+    }
+    
+    override public func main() {
+        
+        if isCancelled {
+            return
+        }
+        
+        guard let imageData = try? Data(contentsOf: photoRecord.url) else { return }
+        
+        if isCancelled {
+            return
+        }
+        
+        if !imageData.isEmpty {
+            photoRecord.image = UIImage(data:imageData)
+            photoRecord.state = .downloaded
+        } else {
+            photoRecord.state = .failed
+            photoRecord.image = UIImage(named: "Failed")
+        }
+    }
 }
