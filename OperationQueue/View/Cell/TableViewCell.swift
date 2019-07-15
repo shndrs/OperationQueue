@@ -15,7 +15,6 @@ protocol ReloadTableDelegate: AnyObject {
 final class TableViewCell: UITableViewCell {
     
     private let pendingOperations = PendingOperations()
-    
     public weak var reloadDelegate: ReloadTableDelegate?
     
     @IBOutlet private weak var bannerImage: UIImageView! {
@@ -25,14 +24,6 @@ final class TableViewCell: UITableViewCell {
         }
     }
     @IBOutlet private weak var titleLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
     
     private func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
         switch (photoRecord.state) {
@@ -68,7 +59,7 @@ final class TableViewCell: UITableViewCell {
         pendingOperations.downloadQueue.addOperation(downloader)
     }
     
-    func startFiltration(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+    private func startFiltration(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
         guard pendingOperations.filtrationsInProgress[indexPath] == nil else {
             return
         }
@@ -89,7 +80,6 @@ final class TableViewCell: UITableViewCell {
         pendingOperations.filtrationQueue.addOperation(filterer)
     }
 
-    
     public func fillCellBy(photoRecord: PhotoRecord, indexPath: IndexPath) {
 
         if self.accessoryView == nil {
@@ -113,3 +103,4 @@ final class TableViewCell: UITableViewCell {
         }
     }
 }
+

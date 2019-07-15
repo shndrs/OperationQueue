@@ -111,6 +111,6 @@ extension ListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension ListViewController: ReloadTableDelegate {
     func reloadTable(at indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .fade)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
 }

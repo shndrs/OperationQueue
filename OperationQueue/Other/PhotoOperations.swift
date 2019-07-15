@@ -12,21 +12,10 @@ enum PhotoRecordState {
     case new, downloaded, filtered, failed
 }
 
-public final class PhotoRecord {
-    let name: String
-    let url: URL
-    var state = PhotoRecordState.new
-    var image = UIImage(named: "Placeholder")
-    
-    init(name:String, url:URL) {
-        self.name = name
-        self.url = url
-    }
-}
 
 public class PendingOperations {
     
-    lazy var downloadsInProgress: [IndexPath:  Operation] = [:]
+    lazy var downloadsInProgress: [IndexPath: Operation] = [:]
     lazy var downloadQueue: OperationQueue = {
         var queue = OperationQueue()
         queue.name = "Download queue"

@@ -14,7 +14,6 @@
 		F46EF60322DC467900E30C84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F46EF60222DC467900E30C84 /* Assets.xcassets */; };
 		F46EF60622DC467900E30C84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F46EF60422DC467900E30C84 /* LaunchScreen.storyboard */; };
 		F46EF60E22DC47CA00E30C84 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF60D22DC47CA00E30C84 /* ListViewController.swift */; };
-		F46EF61122DC4C5D00E30C84 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61022DC4C5D00E30C84 /* Model.swift */; };
 		F46EF61722DC4DDB00E30C84 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61522DC4DDB00E30C84 /* TableViewCell.swift */; };
 		F46EF61822DC4DDB00E30C84 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */; };
 		F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61922DC4E4000E30C84 /* Strings.swift */; };
@@ -32,7 +31,6 @@
 		F46EF60522DC467900E30C84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F46EF60722DC467900E30C84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F46EF60D22DC47CA00E30C84 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
-		F46EF61022DC4C5D00E30C84 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		F46EF61522DC4DDB00E30C84 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F46EF61922DC4E4000E30C84 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 		F46EF60F22DC4C4900E30C84 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F46EF61022DC4C5D00E30C84 /* Model.swift */,
 				F4266E4222DC690500FA8F2C /* PhotoRecord.swift */,
 			);
 			path = Model;
@@ -91,9 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				F46EF61422DC4DBC00E30C84 /* Cell */,
-				F46EF60422DC467900E30C84 /* LaunchScreen.storyboard */,
 				F46EF60D22DC47CA00E30C84 /* ListViewController.swift */,
 				F46EF5FF22DC467800E30C84 /* Main.storyboard */,
+				F46EF60422DC467900E30C84 /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,7 +197,6 @@
 				F46EF61E22DC560000E30C84 /* FilterImage.swift in Sources */,
 				F4266E4322DC690500FA8F2C /* PhotoRecord.swift in Sources */,
 				F46EF60E22DC47CA00E30C84 /* ListViewController.swift in Sources */,
-				F46EF61122DC4C5D00E30C84 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
