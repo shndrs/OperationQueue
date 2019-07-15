@@ -32,6 +32,7 @@ final class ListViewController: UIViewController {
 extension ListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchPhotoDetails()
         self.title = Strings.operationQueueEx.rawValue
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -53,8 +54,8 @@ extension ListViewController {
             alertController.addAction(okAction)
             
             if let data = data {
+                
                 do {
-                    
                     let datasourceDictionary =
                         try PropertyListSerialization.propertyList(from: data,
                                                                    options: [],
@@ -87,8 +88,7 @@ extension ListViewController {
             }
         }
         task.resume()
-    }
-
+    } //fetchPhotoDetails
 }
 
 // MARK: TableView DataSource Delegate

@@ -26,13 +26,37 @@ final class TableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    public func fillCellBy(title:String?, imageURL:URL) {
+    private func startOperations(for photoRecord: PhotoRecord, at indexPath: IndexPath) {
+        switch (photoRecord.state) {
+        case .new:
+            startDownload(for: photoRecord, at: indexPath)
+        case .downloaded:
+            startFiltration(for: photoRecord, at: indexPath)
+        default:
+            NSLog("do nothing")
+        }
+    }
+    
+    public func fillCellBy(photoRecord: PhotoRecord) {
+
+        if self.accessoryView == nil {
+            let indicator = UIActivityIndicatorView(style: .gray)
+            self.accessoryView = indicator
+        }
+        let indicator = self.accessoryView as! UIActivityIndicatorView
         
-        guard let imageData = try? Data(contentsOf: imageURL) else { return }
-        guard let unfilteredImage = UIImage(data: imageData) else { return }
-        let filterdImage = FilterImage.applySepiaFilter(unfilteredImage)
+        titleLabel.text = photoRecord.name
+        bannerImage.image = photoRecord.image
         
-        titleLabel.text = title
-        bannerImage.image = filterdImage
+        switch (photoRecord.state) {
+        case .filtered:
+            indicator.stopAnimating()
+        case .failed:
+            indicator.stopAnimating()
+            self.titleLabel?.text = Strings.failedToLoad.rawValue
+        case .new, .downloaded:
+            indicator.startAnimating()
+            startOperations(for: photoDetails, at: indexPath)
+        }
     }
 }

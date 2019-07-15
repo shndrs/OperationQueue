@@ -16,6 +16,7 @@ public enum Strings: String {
     case oops = "Oops!"
     case fetchError = "There was an error fetching photo details."
     case ok = "OK"
+    case failedToLoad = "Failed to load"
     case inputIntensity
     
     
