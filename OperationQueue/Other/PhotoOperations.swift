@@ -72,3 +72,27 @@ public class ImageDownloader: Operation {
         }
     }
 }
+
+public class ImageFiltration: Operation {
+    private let photoRecord: PhotoRecord
+    
+    init(_ photoRecord: PhotoRecord) {
+        self.photoRecord = photoRecord
+    }
+    
+    override public func main () {
+        if isCancelled {
+            return
+        }
+        
+        guard self.photoRecord.state == .downloaded else {
+            return
+        }
+        
+        if let image = photoRecord.image,
+            let filteredImage = FilterImage.applySepiaFilter(image) {
+            photoRecord.image = filteredImage
+            photoRecord.state = .filtered
+        }
+    }
+}
