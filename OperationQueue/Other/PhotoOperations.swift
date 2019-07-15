@@ -73,7 +73,7 @@ public class ImageDownloader: Operation {
     }
 }
 
-public class ImageFiltration: Operation {
+public class ImageFilteration: Operation {
     private let photoRecord: PhotoRecord
     
     init(_ photoRecord: PhotoRecord) {
@@ -90,9 +90,37 @@ public class ImageFiltration: Operation {
         }
         
         if let image = photoRecord.image,
-            let filteredImage = FilterImage.applySepiaFilter(image) {
+            let filteredImage = applySepiaFilter(image) {
             photoRecord.image = filteredImage
             photoRecord.state = .filtered
         }
     }
+    
+    func applySepiaFilter(_ image: UIImage) -> UIImage? {
+        guard let data = image.pngData() else { return nil }
+        let inputImage = CIImage(data: data)
+        
+        if isCancelled {
+            return nil
+        }
+        
+        let context = CIContext(options: nil)
+        
+        guard let filter = CIFilter(name: Strings.sepiaTone.rawValue) else { return nil }
+        filter.setValue(inputImage, forKey: kCIInputImageKey)
+        filter.setValue(0.8, forKey: Strings.inputIntensity.rawValue)
+        
+        if isCancelled {
+            return nil
+        }
+        
+        guard let outputImage = filter.outputImage,
+            let outImage = context.createCGImage(outputImage, from: outputImage.extent)
+            else {
+                return nil
+        }
+        
+        return UIImage(cgImage: outImage)
+    }
+
 }
