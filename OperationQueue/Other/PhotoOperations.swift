@@ -12,7 +12,6 @@ enum PhotoRecordState {
     case new, downloaded, filtered, failed
 }
 
-
 public class PendingOperations {
     
     lazy var downloadsInProgress: [IndexPath: Operation] = [:]
@@ -108,8 +107,6 @@ public class ImageFilteration: Operation {
             else {
                 return nil
         }
-        
         return UIImage(cgImage: outImage)
     }
-
 }

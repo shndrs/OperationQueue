@@ -18,7 +18,6 @@
 		F46EF61822DC4DDB00E30C84 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */; };
 		F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61922DC4E4000E30C84 /* Strings.swift */; };
 		F46EF61C22DC503B00E30C84 /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61B22DC503B00E30C84 /* DataSource.swift */; };
-		F46EF61E22DC560000E30C84 /* FilterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46EF61D22DC560000E30C84 /* FilterImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		F46EF61622DC4DDB00E30C84 /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		F46EF61922DC4E4000E30C84 /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		F46EF61B22DC503B00E30C84 /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
-		F46EF61D22DC560000E30C84 /* FilterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 				F46EF60222DC467900E30C84 /* Assets.xcassets */,
 				F46EF61922DC4E4000E30C84 /* Strings.swift */,
 				F46EF61B22DC503B00E30C84 /* DataSource.swift */,
-				F46EF61D22DC560000E30C84 /* FilterImage.swift */,
 				F4266E4422DC69D500FA8F2C /* PhotoOperations.swift */,
 			);
 			path = Other;
@@ -194,7 +191,6 @@
 				F4266E4522DC69D500FA8F2C /* PhotoOperations.swift in Sources */,
 				F46EF61722DC4DDB00E30C84 /* TableViewCell.swift in Sources */,
 				F46EF61A22DC4E4000E30C84 /* Strings.swift in Sources */,
-				F46EF61E22DC560000E30C84 /* FilterImage.swift in Sources */,
 				F4266E4322DC690500FA8F2C /* PhotoRecord.swift in Sources */,
 				F46EF60E22DC47CA00E30C84 /* ListViewController.swift in Sources */,
 			);
